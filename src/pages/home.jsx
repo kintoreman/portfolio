@@ -1,29 +1,12 @@
-import React from "react"
-import { useHistory } from "react-router-dom";
+import React, { useState } from "react"
 import { makeStyles } from "@material-ui/core/styles";
-import ButtonBase from "@material-ui/core/ButtonBase";
 import Typography from "@material-ui/core/Typography";
-
-const images = [
-    {
-        path: "/history",
-        url: "/images/S__27287579.jpg",
-        title: "HISTORY",
-        width: "33%",
-    },
-    {
-        path: "/life",
-        url: "/images/IMG_2060.JPG",
-        title: "LIFE",
-        width: "33%",
-    },
-    {
-        path: "/hobby",
-        url: "/images/HGWU0358.JPG",
-        title: "HOBBY",
-        width: "33%",
-    },
-];
+import menu from "./menu/menu";
+import button from "./button/button";
+import Container from '@material-ui/core/Container';
+import ButtonBase from "@material-ui/core/ButtonBase";
+import Link from '@material-ui/core/Link';
+import contact from "./menu/contact"
 
 //静的ファイルは基本的にはpublicにいれる！！
 //iconとかもpublicにいれる
@@ -31,115 +14,190 @@ const images = [
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        display: 'flex',
-        flexWrap: 'wrap',
-        minWidth: 300,
-        width: '100%',
+        width: "85vw",
+        height: "900px",
+        position: "relative",
+        background: "#fff",
+        padding: "0",
     },
-    image: {
-        position: 'relative',
-        height: 200,
-        [theme.breakpoints.down('xs')]: {
-            width: '100% !important', // Overrides inline-style
-            height: 100,
-        },
-        '&:hover, &$focusVisible': {
-            zIndex: 1,
-            '& $imageBackdrop': {
-                opacity: 0.15,
-            },
-            '& $imageMarked': {
-                opacity: 0,
-            },
-            '& $imageTitle': {
-                border: '4px solid currentColor',
-            },
-        },
+    bg: {
+        width: "85vw",
+        height: "100%",
+        backgroundImage: "url(/images/S__34168887_0.jpg)",
+        backgroundSize: "cover",
+        backgroundPositionY: "80%",
+        opacity: "0.5",
+        border: "10px groove #f0f0f0 ",
+        position: "absolute",
     },
-    focusVisible: {},
-    imageButton: {
-        position: 'absolute',
-        left: 0,
-        right: 0,
-        top: 0,
-        bottom: 0,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        color: theme.palette.common.white,
+    box: {
+        fontSize: "100px",
+        color: "#000",
+        fontFamily: "SERIF",
+        marginLeft: "2%",
     },
-    imageSrc: {
-        position: 'absolute',
-        left: 0,
-        right: 0,
-        top: 0,
-        bottom: 0,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center 40%',
+    root2: {
+        width: "85vw",
+        height: "1000px",
+        position: "relative",
+        background: "#fff",
+        padding: "0",
     },
-    imageBackdrop: {
-        position: 'absolute',
-        left: 0,
-        right: 0,
-        top: 0,
-        bottom: 0,
-        backgroundColor: theme.palette.common.black,
-        opacity: 0.4,
-        transition: theme.transitions.create('opacity'),
+    bg2: {
+        width: "85vw",
+        height: "100%",
+        backgroundImage: "url(/images/S__34168918.jpg)",
+        backgroundSize: "cover",
+        backgroundPositionY: "60%",
+        opacity: "0.5",
+        border: "10px groove #f0f0f0 ",
+        position: "absolute",
     },
-    imageTitle: {
-        position: 'relative',
-        padding: `${theme.spacing(2)}px ${theme.spacing(4)}px ${theme.spacing(1) + 6}px`,
+    root3: {
+        width: "85vw",
+        height: "100vh",
+        position: "relative",
+        background: "#fff",
+        padding: "0",
     },
-    imageMarked: {
-        height: 3,
-        width: 18,
-        backgroundColor: theme.palette.common.white,
-        position: 'absolute',
-        bottom: -2,
-        left: 'calc(50% - 9px)',
-        transition: theme.transitions.create('opacity'),
+    bg3: {
+        width: "85vw",
+        height: "100vh",
+        background: "repeating-radial-gradient(skyblue, transparent 120px)",
+        backgroundSize: "cover",
+        backgroundPositionY: "50%",
+        opacity: "0.5",
+        border: "10px groove #f0f0f0 ",
+        position: "absolute",
     },
+    span: {
+        textAlign: "center",
+        paddingTop: "25%",
+    },
+    more: {
+        fontSize: "40px",
+        background: "repeating-radial-gradient(black, transparent 100px)",
+        borderRadius: 10,
+        color: "yellow",
+        width: "fit-content",
+        marginLeft: "46%",
+        marginTop: "5%",
+        padding: "1%",
+    },
+    more2: {
+        fontSize: "40px",
+        background: "repeating-radial-gradient(purple, transparent 100px)",
+        borderRadius: 10,
+        width: "fit-content",
+        marginLeft: "46%",
+        marginTop: "5%",
+        padding: "1%",
+    },
+    h3: {
+        marginTop: "10%",
+    },
+    h3v2: {
+        width: "87vw",
+        marginTop: "15%",
+        textAlign: "center",
+        background: "rgba(255,250,111,0.5)",
+        color: "darkmagenta",
+        position: "relative",
+    },
+    font: {
+        fontSize: "25px",
+        marginLeft: "5%",
+        fontFamily: "serif",
+        position: "relative",
+    },
+    font2: {
+        fontSize: "30px",
+
+    },
+    button: {
+        marginTop: "2%",
+        marginLeft: "5%",
+        marginRight: "5%",
+        border: "10px groove #f0f0f0 ",
+    },
+
 }));
 
-export default function ButtonBases() {
+// const HomeIcon = (props) => {
+//     return (
+//         <SvgIcon {...props}>
+//             <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+//         </SvgIcon>
+//     );
+// }
+
+const Home = () => {
     const classes = useStyles();
-    const history = useHistory();
+    const click = React.useRef();
+    const move = () => {
+        window.scroll(0, 10000);
+    };
 
     return (
-        <div className={classes.root}>
-            {images.map((image) => (
-                <ButtonBase
-                    onClick={(e) => history.push(image.path)}
-                    focusRipple
-                    key={image.title}
-                    className={classes.image}
-                    focusVisibleClassName={classes.focusVisible}
-                    style={{
-                        width: image.width,
+        //titleに背景とコンポーネントMenuをいれたい
+        <React.Fragment>
+            <Typography component={menu}>
+            </Typography>
+
+            <Container className={classes.root} >
+                <div className={classes.bg}
+                    onMouseEnter={() => {
+                        console.log("aaa")
                     }}
-                >
-                    <span
-                        className={classes.imageSrc}
-                        style={{
-                            backgroundImage: `url(${image.url})`,
-                        }}
-                    />
-                    <span className={classes.imageBackdrop} />
-                    <span className={classes.imageButton}>
-                        <Typography
-                            component="span"
-                            variant="subtitle1"
-                            color="inherit"
-                            className={classes.imageTitle}
-                        >
-                            {image.title}
-                            <span className={classes.imageMarked} />
-                        </Typography>
-                    </span>
+                    onMouseLeave={() => {
+                        console.log("bbb")
+                    }}
+                ></div>
+                <h1 className={classes.box}>
+                    My profile...
+                </h1>
+                <h3 className={classes.h3}>
+                    <p className={classes.font}>こんにちは！</p>
+                    <p className={classes.font}>獨協大学の境野です！私は平凡な人間です。</p>
+                    <p className={classes.font}>なにをしてもトップを取ることはないような人間です。</p>
+                    <p className={classes.font}>それはいつしかコンプレックスになるようになったのはいつ頃からでしょうか。。。</p>
+                    <p className={classes.font}>このサイトで私のことを知っていただければ幸いです！</p>
+                </h3>
+                <ButtonBase className={classes.more} onClick={() =>
+                    move(click)
+                }>More</ButtonBase>
+            </Container>
+
+            <Container className={classes.root2}  >
+                <div className={classes.bg2}></div>
+                <h1 className={classes.box}>
+                    I'm joining club in lacrosse.
+                    </h1>
+                <h3 className={classes.h3v2}>
+                    <p className={classes.font2}>私は現在男子ラクロス部に所属しています！</p>
+                    <p className={classes.font2}>最高な仲間と出会い、創部初のFinal4を目指し練習しています！</p>
+                    <p className={classes.font2}>少しでも弊部の事を知ってもらえたら幸いです。</p>
+                </h3>
+                <ButtonBase className={classes.more2}>
+                    <Link style={{ color: "yellow" }} href="https://www.dokkyo-mens-lacrosse.com/" >
+                        More
+                        </Link>
                 </ButtonBase>
-            ))}
-        </div>
+            </Container >
+
+            <Container className={classes.root3}>
+                <div className={classes.bg3}></div>
+                <div className={classes.span}>
+                    <Typography component={contact}></Typography>
+                </div>
+            </Container>
+
+            <div className={classes.button}>
+
+                <Typography component={button}></Typography>
+            </div>
+        </React.Fragment>
     );
 }
 
+export default Home;
