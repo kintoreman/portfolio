@@ -106,7 +106,7 @@ const Life = () => {
         <React.Fragment>
 
             <div className={classes[click]}>
-                <p className={classes.title}>My Life</p>
+                <p className={classes.title}>My LIFE</p>
                 <h1 className={classes.font}>野球を10年間。その後大学ではラクロスに転身。</h1>
                 <Button className={classes.button}
                     onClick={() => {

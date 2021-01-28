@@ -154,7 +154,7 @@ const Home = () => {
                     }}
                 ></div>
                 <h1 className={classes.box}>
-                    My profile...
+                    Mr.挫折マン
                 </h1>
                 <h3 className={classes.h3}>
                     <p className={classes.font}>こんにちは！</p>
@@ -195,9 +195,12 @@ const Home = () => {
             <div className={classes.button}>
 
                 <Typography component={button}></Typography>
+
             </div>
+
         </React.Fragment>
     );
 }
-
+//Typographyは言葉をいれるためのAPI
+//Containerは枠組み的な要素である。
 export default Home;
