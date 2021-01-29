@@ -1,8 +1,4 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
-import Fade from '@material-ui/core/Fade';
 import { makeStyles } from '@material-ui/core';
 
 
@@ -11,6 +7,11 @@ const useStyles = makeStyles({
         //backgroundImage: "url(/images/S__27287565.jpg)",
         width: "100vw",//vwとは画面の横幅１００％
         display: "flex",
+    },
+    p:{
+        fontSize:"28px",
+        background:"rgba(255,150,255)",
+        margin: 0,
     },
     list: {
         width: "100vw",
@@ -26,11 +27,11 @@ const useStyles = makeStyles({
     },
     li: {
         marginRight: "5%",
-    },
-    "&:hover,&$change": {
+    "&:hover": {
         background: "silver",
     },
-    change: {},
+},
+
 
 
 
@@ -44,21 +45,16 @@ const useStyles = makeStyles({
 
 
 const FxMenu = () => {
-    const [anchorEl, setAnchorEl] = React.useState(null);
-    const open = Boolean(anchorEl);
     const classes = useStyles();
-    const handleClick = (event) => {
-        setAnchorEl(event.currentTarget);
-    };
-
-    const handleClose = () => {
-        setAnchorEl(null);
-    };
-
+   
     return (
         <React.Fragment>
 
+
             <ul className={classes.list}>
+                 <p className={classes.p}>
+                     kintoreman
+                 </p>
                 <h1 className={classes.title}>
                     <li className={classes.li} > <a href="http://localhost:3000/">Home</a></li>
                     <li className={classes.li}><a href="https://www.dokkyo.ac.jp/">Dokkyo</a></li>
@@ -71,33 +67,8 @@ const FxMenu = () => {
                 </Button> */}
             </ul>
 
-
-
-            <Menu
-                id="fade-menu"
-                anchorEl={anchorEl}
-                keepMounted
-                open={open}
-                onClose={handleClose}
-                TransitionComponent={Fade}
-            >
-                <MenuItem>
-                    <a target="_blank" href="mailto:dokkyou93@gmail.com">Mail</a>
-                </MenuItem>
-
-                <MenuItem>
-                    <a target="_blank" href="https://twitter.com/dokkyolax">Twitter</a>
-                </MenuItem>
-
-                <MenuItem>
-                    <a target="_blank" href="https://www.instagram.com/suke_lax/">Instagram</a>
-                </MenuItem>
-
-            </Menu>
-
         </React.Fragment>
-
-    );
-}
+            );
+        }
 
 export default FxMenu;

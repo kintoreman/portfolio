@@ -1,12 +1,11 @@
 import React, { useState } from "react"
 import { makeStyles } from "@material-ui/core/styles";
-import Typography from "@material-ui/core/Typography";
-import menu from "./menu/menu";
-import button from "./button/button";
+import Menu from "./menu/menu";
+import Button from "./button/button";
 import Container from '@material-ui/core/Container';
 import ButtonBase from "@material-ui/core/ButtonBase";
 import Link from '@material-ui/core/Link';
-import contact from "./menu/contact"
+import Contact from "./menu/contact"
 
 //静的ファイルは基本的にはpublicにいれる！！
 //iconとかもpublicにいれる
@@ -123,13 +122,6 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-// const HomeIcon = (props) => {
-//     return (
-//         <SvgIcon {...props}>
-//             <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
-//         </SvgIcon>
-//     );
-// }
 
 const Home = () => {
     const classes = useStyles();
@@ -141,8 +133,7 @@ const Home = () => {
     return (
         //titleに背景とコンポーネントMenuをいれたい
         <React.Fragment>
-            <Typography component={menu}>
-            </Typography>
+           <Menu />
 
             <Container className={classes.root} >
                 <div className={classes.bg}
@@ -188,14 +179,12 @@ const Home = () => {
             <Container className={classes.root3}>
                 <div className={classes.bg3}></div>
                 <div className={classes.span}>
-                    <Typography component={contact}></Typography>
+                    <Contact />
                 </div>
             </Container>
 
             <div className={classes.button}>
-
-                <Typography component={button}></Typography>
-
+                <Button />
             </div>
 
         </React.Fragment>
