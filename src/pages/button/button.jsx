@@ -6,7 +6,7 @@ import Typography from "@material-ui/core/Typography";
 
 const images = [
     {
-        path: "/history",
+        path: "/react",
         url: "/logo512.png",
         title: "React",
         width: "33%",
@@ -18,7 +18,7 @@ const images = [
         width: "33%",
     },
     {
-        path: "http://localhost:3000/",
+        path: "/ts",
         url: "/ts.jpg",
         title: "JS,TS",
         width: "34%",

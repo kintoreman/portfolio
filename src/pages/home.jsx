@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { makeStyles } from "@material-ui/core/styles";
 import Menu from "./menu/menu";
 import Button from "./button/button";
+import history from "./history"
 import Container from '@material-ui/core/Container';
 import ButtonBase from "@material-ui/core/ButtonBase";
 import Link from '@material-ui/core/Link';
@@ -149,10 +150,9 @@ const Home = () => {
                     <p className={classes.font}>それはいつしかコンプレックスになるようになったのはいつ頃からでしょうか。。。</p>
                     <p className={classes.font}>このサイトで私のことを知っていただければ幸いです！</p>
                 </h3>
-                <ButtonBase className={classes.more}>
-                    <Link style={{ color: "yellow" }} href="http://localhost:3000/history">
+                <ButtonBase className={classes.more} import={history}>
                         More
-                    </Link>    
+                    
                 </ButtonBase>
                 
             </Container>
