@@ -2,8 +2,8 @@ import React from "react"
 
 import home from "./pages/home"
 import history from "./pages/history"
-import life from "./pages/life"
-import hobby from "./pages/hobby"
+import native from "./pages/native"
+import ts from "./pages/ts"
 
 import { BrowserRouter, Switch, Route } from "react-router-dom"
 //ターミナルでnpm add react-router-domと入力
@@ -19,8 +19,8 @@ const App = () => {
             <Switch>
                 <Route exact path="/" component={home} />
                 <Route exact path="/history" component={history} />
-                <Route exact path="/life" component={life} />
-                <Route exact path="/hobby" component={hobby} />
+                <Route exact path="/native" component={native} />
+                <Route exact path="/ts" component={ts} />
             </Switch>
         </BrowserRouter>
     )

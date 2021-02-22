@@ -7,20 +7,20 @@ import Typography from "@material-ui/core/Typography";
 const images = [
     {
         path: "/history",
-        url: "/images/S__27287579.jpg",
-        title: "HISTORY",
+        url: "/logo512.png",
+        title: "React",
         width: "33%",
     },
     {
-        path: "/life",
-        url: "/images/KC1_2810.JPG",
-        title: "LIFE",
+        path: "/native",
+        url: "/redux.jpg",
+        title: "Native",
         width: "33%",
     },
     {
-        path: "/hobby",
-        url: "/images/HGWU0358.JPG",
-        title: "HOBBY",
+        path: "http://localhost:3000/",
+        url: "/ts.jpg",
+        title: "JS,TS",
         width: "34%",
     },
 ];

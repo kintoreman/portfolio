@@ -28,6 +28,9 @@ const useStyles = makeStyles((theme) => ({
         opacity: "0.5",
         border: "10px groove #f0f0f0 ",
         position: "absolute",
+        "&:hover": {
+            opacity: 0.8,
+        },
     },
     box: {
         fontSize: "100px",
@@ -51,6 +54,9 @@ const useStyles = makeStyles((theme) => ({
         opacity: "0.5",
         border: "10px groove #f0f0f0 ",
         position: "absolute",
+           "&:hover": {
+            opacity: 0.8,
+        },
     },
     root3: {
         width: "85vw",
@@ -125,10 +131,6 @@ const useStyles = makeStyles((theme) => ({
 
 const Home = () => {
     const classes = useStyles();
-    const click = React.useRef();
-    const move = () => {
-        window.scroll(0, 10000);
-    };
 
     return (
         //titleに背景とコンポーネントMenuをいれたい
@@ -136,14 +138,7 @@ const Home = () => {
            <Menu />
 
             <Container className={classes.root} >
-                <div className={classes.bg}
-                    onMouseEnter={() => {
-                        console.log("aaa")
-                    }}
-                    onMouseLeave={() => {
-                        console.log("bbb")
-                    }}
-                ></div>
+                <div className={classes.bg} />
                 <h1 className={classes.box}>
                     Mr.挫折マン
                 </h1>
@@ -154,9 +149,12 @@ const Home = () => {
                     <p className={classes.font}>それはいつしかコンプレックスになるようになったのはいつ頃からでしょうか。。。</p>
                     <p className={classes.font}>このサイトで私のことを知っていただければ幸いです！</p>
                 </h3>
-                <ButtonBase className={classes.more} onClick={() =>
-                    move(click)
-                }>More</ButtonBase>
+                <ButtonBase className={classes.more}>
+                    <Link style={{ color: "yellow" }} href="http://localhost:3000/history">
+                        More
+                    </Link>    
+                </ButtonBase>
+                
             </Container>
 
             <Container className={classes.root2}  >
