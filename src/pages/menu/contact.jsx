@@ -1,61 +1,92 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
-import Fade from '@material-ui/core/Fade';
-import { makeStyles } from '@material-ui/core';
+import { Container, makeStyles } from '@material-ui/core';
+import InstagramIcon from '@material-ui/icons/Instagram';
+import TwitterIcon from '@material-ui/icons/Twitter';
+import MailOutlineIcon from '@material-ui/icons/MailOutline';
 
 
 const useStyles = makeStyles({
+    root: {
+        width: "85vw",
+        height: "400px",
+        position: "relative",
+        background: "#fff",
+        padding: "0",
+    },
+      bg3: {
+        width: "85vw",
+        height: "400px",
+        backgroundImage: "url(/images/imgcontact.jpg)",
+        backgroundSize: "cover",
+        backgroundPositionY: "40%",
+        border: "10px groove #f0f0f0 ",
+        borderRadius:"50px",
+        opacity: "0.5",
+        position: "absolute",
+         "&:hover": {
+            opacity: 0.8,
+        },
+    },
+    root3: {
+        paddingTop: "35vh",
+        paddingLeft: "10vw",
+        
+    },
     Button: {
-        width: "30vw",
-        fontSize: "50px",
-        background: "repeating-linear-gradient(45deg, white, transparent 10px)",
+        width: "180px",
+        marginLeft:"8%",
+        fontSize: "20px",
+        
     },
 })
 
 
 
 const Contact = () => {
-    const [anchorEl, setAnchorEl] = React.useState(null);
-    const open = Boolean(anchorEl);
     const classes = useStyles();
-    const handleClick = (event) => {
-        setAnchorEl(event.currentTarget);
-    };
-
-    const handleClose = () => {
-        setAnchorEl(null);
-    };
 
     return (
+
         <React.Fragment>
+          <Container className={classes.root}>
+           <div className={classes.bg3} />
+              <div className={classes.root3}>
+                 <Button
+                    variant="contained"
+                    color="secondary"
+                    className={classes.Button}
+                    startIcon={<InstagramIcon />}
+                    Link  href="https://www.instagram.com/suke_lax/" 
+                    >
+                Instagram
+                 </Button>
 
-            <Button className={classes.Button} aria-controls="fade-menu" aria-haspopup="true" onClick={handleClick}>
-                Contact
-                </Button>
+                <Button
+                    variant="contained"
+                    color="primary"
+                    className={classes.Button}
+                    startIcon={<TwitterIcon />}
+                    Link  href="https://twitter.com/dokkyolax" 
+                    >
+                Twitter
+                 </Button>
 
-            <Menu
-                id="fade-menu"
-                anchorEl={anchorEl}
-                keepMounted
-                open={open}
-                onClose={handleClose}
-                TransitionComponent={Fade}
-            >
-                <MenuItem>
-                    <a target="_blank" href="mailto:dokkyou93@gmail.com">Mail</a>
-                </MenuItem>
+                 <Button
+                    variant="contained"
+                    color="default"
+                    className={classes.Button}
+                    startIcon={<MailOutlineIcon />}
+                    Link  href="mailto:dokkyou93@gmail.com"
+                    >
+                Mail
+                 </Button>
+                </div> 
+            </Container>
+               
 
-                <MenuItem>
-                    <a target="_blank" href="https://twitter.com/dokkyolax">Twitter</a>
-                </MenuItem>
 
-                <MenuItem>
-                    <a target="_blank" href="https://www.instagram.com/suke_lax/">Instagram</a>
-                </MenuItem>
 
-            </Menu>
 
         </React.Fragment>
 

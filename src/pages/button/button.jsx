@@ -34,6 +34,7 @@ const useStyles = makeStyles((theme) => ({
             width: '100% ', // Overrides inline-style
             height: 100,
         },
+        
         '&:hover, &$focusVisible': {
             zIndex: 1,
             '& $imageBackdrop': {
@@ -58,6 +59,7 @@ const useStyles = makeStyles((theme) => ({
         alignItems: 'center',
         justifyContent: 'center',
         color: theme.palette.common.white,
+        
     },
     imageSrc: {
         position: 'absolute',
@@ -91,6 +93,14 @@ const useStyles = makeStyles((theme) => ({
         left: 'calc(50% - 9px)',
         transition: theme.transitions.create('opacity'),
     },
+    button: {
+        marginTop: "2%",
+        marginLeft: "5%",
+        marginRight: "5%",
+        border: "10px groove #f0f0f0 ",
+        borderRadius:"10px",
+
+    },
 }));
 
 const Button = () => {
@@ -99,24 +109,26 @@ const Button = () => {
 
     return (
         <React.Fragment>
+            <div className={classes.button}>
+
 
             {images.map((image) => (
                 <ButtonBase
-                    onClick={(e) => history.push(image.path)}
-                    focusRipple
-                    key={image.title}
-                    className={classes.image}
-                    focusVisibleClassName={classes.focusVisible}
-                    style={{
-                        width: image.width,
-                    }}
+                onClick={(e) => history.push(image.path)}
+                focusRipple
+                key={image.title}
+                className={classes.image}
+                focusVisibleClassName={classes.focusVisible}
+                style={{
+                    width: image.width,
+                }}
                 >
                     <span
                         className={classes.imageSrc}
                         style={{
                             backgroundImage: `url(${image.url})`,
                         }}
-                    />
+                        />
                     <span className={classes.imageBackdrop} />
                     <span className={classes.imageButton}>
                         <Typography
@@ -124,13 +136,14 @@ const Button = () => {
                             variant="subtitle1"
                             color="inherit"
                             className={classes.imageTitle}
-                        >
+                            >
                             {image.title}
                             <span className={classes.imageMarked} />
                         </Typography>
                     </span>
                 </ButtonBase>
             ))}
+            </div>
         </React.Fragment>
     )
 };

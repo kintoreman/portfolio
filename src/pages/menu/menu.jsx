@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core';
-
+import FitnessCenterIcon from '@material-ui/icons/FitnessCenter';
 
 const useStyles = makeStyles({
     root: {
@@ -9,9 +9,14 @@ const useStyles = makeStyles({
         display: "flex",
     },
     p:{
-        fontSize:"28px",
-        background:"rgba(255,150,255)",
-        margin: 0,
+        fontSize:"25px",
+        fontVariant: "full-width",
+        margin: "auto",
+        marginLeft: "5%",
+        display: "flex",
+        background: "rgba(255,25,255,0.1)",
+        border: "green",
+        borderRadius:"50px",
     },
     list: {
         width: "100vw",
@@ -24,6 +29,7 @@ const useStyles = makeStyles({
         fontFamily: "'Mv Boli',sans-serif",
         display: "flex",
         justifyContent: "flex-end",
+        
     },
     li: {
         marginRight: "5%",
@@ -53,7 +59,9 @@ const FxMenu = () => {
 
             <ul className={classes.list}>
                  <p className={classes.p}>
+                 <FitnessCenterIcon style={{color: 'red'}} />
                      kintoreman
+                 <FitnessCenterIcon />
                  </p>
                 <h1 className={classes.title}>
                     <li className={classes.li} > <a href="http://localhost:3000/">Home</a></li>
