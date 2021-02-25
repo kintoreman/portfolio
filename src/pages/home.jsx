@@ -4,7 +4,6 @@ import Menu from "./menu/menu";
 import Button from "./button/button";
 import Contact from "./menu/contact";
 import Me from "./me/me";
-import { yellow } from "@material-ui/core/colors";
 // import { useSpring, animated } from "react-spring";
 
 //静的ファイルは基本的にはpublicにいれる！！
@@ -18,7 +17,7 @@ const useStyles = makeStyles({
         marginTop: "3%",
         fontSize: "30px",
         color: "black",
-        transition:"all 3s ease-out",
+        transition:"all 0.5s ease-out",
         "&:hover":{
             fontSize : "60px",
             color : "yellow",
@@ -30,7 +29,7 @@ const useStyles = makeStyles({
 
 const Home = () => {
     const classes = useStyles();
-    // const enter = useState(false)
+    // const enter = useState(false)  springコンポーネントVercelでデプロイできないからむかつく
     // // const spring = useSpring({
     // //     fontSize: enter ? "60px" : "31px" ,
     // //     color: enter ? "yellow" : "black"
@@ -41,33 +40,21 @@ const Home = () => {
         <React.Fragment>
     
             <Menu />
-            <div 
-                className={classes.h1}
-                // onMouseEnter={(e) => enter(true)}
-                // onMouseLeave={e => enter(false)}
-            >
+            <div className={classes.h1}>
                 ---Profile---
             </div>
+
             <Me />
-            {/* <animated.div 
-                className={classes.h1}
-                style={spring}
-                onMouseEnter={e => setEnter(true)}
-                onMouseLeave={e => setEnter(false)}
-            >
+
+            <div className={classes.h1}>
                 ---Contact---
-            </animated.div> */}
+            </div>
            
             <Contact />
             
-            {/* <animated.div 
-                className={classes.h1}
-                style={spring}
-                onMouseEnter={e => setEnter(true)}
-                onMouseLeave={e => setEnter(false)}
-            >
+            <div className={classes.h1}>
                 ---Skills---
-            </animated.div> */}
+            </div>
 
             <Button />
 
