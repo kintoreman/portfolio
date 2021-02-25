@@ -22,7 +22,7 @@ const Home = () => {
     const classes = useStyles();
     const [enter, setEnter] = useState(false);
     const spring = useSpring({
-        fontSize: enter ? "60px" : "30px" ,
+        fontSize: enter ? "60px" : "31px" ,
         color: enter ? "yellow" : "black"
     });
 
